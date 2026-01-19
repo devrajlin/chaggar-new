@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Awesome Gradient Buttons — Bootstrap + CSS</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons (optional) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    /* -----------------------------
+       Variables (easy to tweak)
+       ----------------------------- */
+    :root{
+      --btn-radius: 12px;
+      --btn-padding: .6rem 1rem;
+      --soft-shadow: 0 6px 18px rgba(12,20,40,0.12);
+      --glass-blur: blur(6px);
+    }
+
+    .gradient-table-2 {
+  border-radius: 15px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+.gradient-table-2 thead tr {
+  background: linear-gradient(135deg, #0072FF, #00C6FF);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.gradient-table-2 tbody tr:nth-child(even) {
+  background: linear-gradient(90deg, rgba(0,198,255,0.05), rgba(0,114,255,0.15));
+}
+.gradient-table-2 tbody tr:nth-child(odd) {
+  background: linear-gradient(90deg, rgba(0,114,255,0.05), rgba(0,198,255,0.15));
+}
+.gradient-table-2 tbody tr:hover {
+  background: linear-gradient(135deg, #00C6FF, #0072FF);
+  color: #fff;
+  transform: scale(1.01);
+  transition: all 0.3s ease;
+}
+.gradient-table-2 td, .gradient-table-2 th {
+  padding: 1rem;
+  border: none;
+
+    /* Base style for all custom gradient buttons */
+    .btn-gradient {
+      border: 0;
+      padding: var(--btn-padding);
+      border-radius: var(--btn-radius);
+      color: white;
+      font-weight: 600;
+      letter-spacing: .2px;
+      box-shadow: var(--soft-shadow);
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+      will-change: transform;
+    }
+
+    .btn-gradient:active{ transform: translateY(1px) scale(.995);} 
+    .btn-gradient:focus{ outline: 3px solid rgba(255,255,255,0.12); outline-offset: 3px; }
+
+    /* -------- Gradient Styles ---------- */
+
+    /* 1 — Electric (animated) */
+    .btn-grad-electric{
+      background: linear-gradient(90deg,#7C4DFF,#2EC5FF,#FF4D8B);
+      background-size: 300% 100%;
+      animation: electricShift 4s linear infinite;
+    }
+    @keyframes electricShift{
+      0%{ background-position: 0% 50%; }
+      50%{ background-position: 100% 50%; }
+      100%{ background-position: 0% 50%; }
+    }
+
+    /* 2 — Soft Pastel (subtle glass) */
+    .btn-grad-pastel{
+      background: linear-gradient(135deg, rgba(255,199,211,0.95), rgba(199,242,255,0.95));
+      color: #2b2b2b;
+      box-shadow: 0 8px 30px rgba(120,140,180,0.12);
+      backdrop-filter: var(--glass-blur);
+    }
+
+    /* 3 — Deep Ocean (diagonal) */
+    .btn-grad-ocean{
+      background: linear-gradient(135deg,#0f2027 0%,#203a43 40%,#2c5364 100%);
+      text-shadow: 0 1px 0 rgba(0,0,0,0.25);
+    }
+
+    /* 4 — Neon Outline (transparent) */
+    .btn-grad-neon{
+      background: transparent;
+      border: 2px solid transparent;
+      position: relative;
+      color: white;
+    }
+    .btn-grad-neon::before{
+      content: '';
+      position: absolute; inset: 0; z-index: -1; border-radius: inherit;
+      padding: 2px; /* space for the glow */
+      background: linear-gradient(90deg,#00ffa8,#00f2ff,#6b6bff,#ff6bcb);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask-composite: exclude; /* modern browsers */
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      box-shadow: 0 6px 30px rgba(80,90,255,0.14);
+    }
+    /* fallback for browsers not supporting mask: a simple glow */
+    .no-mask .btn-grad-neon::before{ filter: blur(6px); opacity:.85; }
+
+    /* 5 — Sunrise (radial + soft scale on hover) */
+    .btn-grad-sunrise{
+      background: radial-gradient(circle at 20% 30%, #FFD194 0%, #D1913C 40%, #FF6B6B 100%);
+      transform-origin: center;
+      transition: transform .22s cubic-bezier(.2,.9,.3,1), box-shadow .22s;
+    }
+    .btn-grad-sunrise:hover{ transform: translateY(-4px) scale(1.02); box-shadow: 0 20px 40px rgba(255,107,107,0.12); }
+
+    /* 6 — Metallic (subtle sheen) */
+    .btn-grad-metal{
+      background: linear-gradient(180deg,#b8b8b8 0%, #7f7f7f 50%, #e6e6e6 100%);
+      color: #121212;
+      box-shadow: 0 6px 18px rgba(12,20,40,0.18), inset 0 -6px 18px rgba(255,255,255,0.06);
+    }
+
+    /* 7 — Candy (rounded pill) */
+    .btn-grad-candy{ border-radius: 999px; padding: .45rem 1.2rem; font-weight:700;
+      background: linear-gradient(90deg,#ff9a9e,#fecfef,#f6f7d4);
+      color:#2b2b2b;
+    }
+
+    /* 8 — Outline gradient with hover fill */
+    .btn-grad-outline{
+      background: transparent; color: #222; border: 2px solid transparent; position: relative; overflow: hidden;
+    }
+    .btn-grad-outline::before{
+      content: '';
+      position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg,#4facfe,#00f2fe);
+      transform: translateX(-110%);
+      transition: transform .35s cubic-bezier(.2,.9,.3,1);
+    }
+    .btn-grad-outline:hover::before{ transform: translateX(0%); }
+
+    /* Icon spacing */
+    .btn .bi{ margin-right: .5rem; vertical-align: -.12rem; }
+
+    /* Small helper grid for demo layout */
+    .demo-grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:1rem; align-items:center; }
+
+    /* Responsiveness tweak */
+    @media (max-width:560px){ :root{ --btn-padding: .55rem .9rem; } }
+  </style>
+</head>
+<body class="bg-light py-5">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1 class="h4">Awesome Gradient Buttons — Demo</h1>
+      <small class="text-muted">Copy the HTML + CSS (single-file)</small>
+    </div>
+
+    <div class="card p-4 mb-4">
+      <p class="mb-2">Buttons: mix & match classes: <code>btn btn-gradient btn-grad-electric</code>. Use <code>btn-lg</code> / <code>btn-sm</code> for sizes.</p>
+      <div class="demo-grid">
+        <button class="btn btn-gradient btn-grad-electric"><i class="bi bi-lightning-charge-fill"></i>Electric</button>
+        <button class="btn btn-gradient btn-grad-pastel"><i class="bi bi-brush"></i>Pastel Glass</button>
+        <button class="btn btn-gradient btn-grad-ocean"><i class="bi bi-water"></i>Deep Ocean</button>
+        <button class="btn btn-gradient btn-grad-neon"><i class="bi bi-lightbulb-fill"></i>Neon Outline</button>
+        <button class="btn btn-gradient btn-grad-sunrise"><i class="bi bi-sun-fill"></i>Sunrise</button>
+        <button class="btn btn-gradient btn-grad-metal"><i class="bi bi-gear-fill"></i>Metallic</button>
+        <button class="btn btn-gradient btn-grad-candy"><i class="bi bi-heart-fill"></i>Candy</button>
+        <button class="btn btn-gradient btn-grad-outline"><i class="bi bi-box-arrow-in-right"></i>Outline Fill</button>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+  <table class="table gradient-table-2 text-center align-middle mb-0">
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>Batch 1 (CBSE)</th>
+        <th>Batch 2 (CBSE)</th>
+        <th>Batch 3 (CBSE)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Monday</td><td>✔</td><td>✔</td><td>✔</td></tr>
+      <tr><td>Tuesday</td><td>✔</td><td>✔</td><td>✔</td></tr>
+      <tr><td>Wednesday</td><td>✔</td><td>✔</td><td>✔</td></tr>
+      <tr><td>Thursday</td><td>✔</td><td>✔</td><td>✔</td></tr>
+      <tr><td>Friday</td><td>✔</td><td>✔</td><td>✔</td></tr>
+    </tbody>
+  </table>
+</div>
+
+    <div class="card p-4">
+      <h5>Usage notes & accessibility</h5>
+      <ul>
+        <li>These are designed as drop-in styles on top of <code>btn</code>. Keep contrast in mind — provide a high-contrast fallback color for older browsers.</li>
+        <li>For best performance limit animated gradients or use prefers-reduced-motion media query to stop animation for users who prefer reduced motion.</li>
+        <li>To customize colors: tweak the gradient stops in each <code>.btn-grad-*</code> rule or add new classes using the pattern.</li>
+      </ul>
+      <pre class="bg-dark text-white p-3 rounded small" style="overflow:auto">/* Example: reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .btn-grad-electric{ animation: none; background-size: 100% 100%; }
+}
+</pre>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (optional but for some components) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

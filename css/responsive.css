@@ -1,0 +1,396 @@
+/* =========================
+   RESPONSIVE LAYER — Paste at END of style2.css
+   Do NOT change classnames or structure.
+   ========================= */
+
+/* -------------------------
+   Helper: prevent tiny horizontal overflow on small devices
+   ------------------------- */
+@media (max-width: 1024px) {
+  html, body {
+    overflow-x: hidden;
+  }
+}
+
+/* =====================================================
+   iPad Pro 12.9 / large tablets and down — 1024px and below
+   (fix layout splits, stack columns, remove tall vh on halves)
+   ===================================================== */
+@media (max-width: 1024px) {
+  /* Hero: left/right split -> stack vertically, remove fixed vh height */
+  .hero-section .header-left-panel,
+  .hero-section .header-right-panel,
+  .hero-section .col-md-6.p-0.border-right.vh-100 {
+    height: auto !important;
+    min-height: auto !important;
+    padding: 3rem 1.5rem;
+    border-right: none !important;
+  }
+
+  /* Ensure hero stat card aligns correctly */
+  .hero-stat-card {
+    margin: 0 auto 1.5rem auto !important;
+    transform: none !important;
+  }
+
+  /* Landing card sizing */
+  .landing-card {
+    width: 92% !important;
+    padding: 2rem !important;
+  }
+
+  /* Video background: ensure it covers and doesn't overflow */
+  .video-bg-section .bg-video {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 380px;
+    object-fit: cover;
+  }
+
+  /* Glass UI: reduce padding & ensure center stacking */
+  .glass-ui-frame {
+    padding: 36px !important;
+  }
+  .glass-top-bar {
+    gap: .5rem;
+    flex-wrap: wrap;
+  }
+  .glass-vertical-bar {
+    left: 12px;
+    height: 140px;
+  }
+
+  /* Pricing / cards: stack into columns */
+  .pricing-card, .investor-card, .layout-card.plan-card {
+    width: 100% !important;
+    margin: 0 0 1.25rem 0 !important;
+  }
+
+  /* Accordion slider (car / villa slider) — stack vertically */
+  .accordion-slider {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    height: auto !important;
+    gap: 1rem;
+  }
+  .accordion-slider .slide {
+    flex: none !important;
+    width: 100% !important;
+    min-height: 260px !important;
+    border-radius: 14px !important;
+  }
+  .accordion-slider .slide.active {
+    flex: none !important; /* prevent huge expansion on tablet */
+    transform: none !important;
+  }
+
+  /* Nav arrows reposition for tablet */
+  .navigation-arrows.nav-prev {
+    left: 8px !important;
+  }
+  .navigation-arrows.nav-next {
+    right: 8px !important;
+  }
+
+  /* Reflow glass-info-card to vertical */
+  .glass-info-card {
+    position: static !important;
+    transform: none !important;
+    margin: 0.75rem auto !important;
+    width: calc(100% - 2rem) !important;
+  }
+
+  /* daily quote hide on small tablets for cleaner layout */
+  .daily-quote.menu-info {
+    display: none !important;
+  }
+
+  /* investor charts - full width stacks */
+  .chart-container {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 220px;
+  }
+
+  /* Adjust hero header fixed spacing */
+  header.position-fixed.top-0.start-0.end-0 {
+    padding: .5rem 0;
+  }
+
+  /* ensure testimonials / reviews don't overflow horizontally */
+  .reviews, .reviews-row {
+    overflow: visible !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+}
+
+/* =====================================================
+   iPad / iPad Mini / iPad Air exact-ish widths — 834px and below
+   (portrait 834 width - adjust text sizes, images, paddings)
+   ===================================================== */
+@media (max-width: 834px) {
+  /* Headings scale down for readability */
+  .h1-l, .section-header-title, .landing-card h1, .landing-card .display-5 {
+    font-size: clamp(1.3rem, 2.8vw, 2.2rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Landing card — center align */
+  .landing-card {
+    margin: 1.2rem auto;
+    padding: 1.6rem !important;
+    width: 94% !important;
+  }
+
+  /* Call-to-action buttons: stack vertically with full width */
+  .landing-card .btn-accent, .landing-card .btn {
+    display: block !important;
+    width: 100% !important;
+    margin: 0.5rem 0 !important;
+    padding: 0.85rem 1rem !important;
+  }
+
+  /* Video overlay: keep hero text readable */
+  .video-overlay {
+    background: rgba(0,0,0,0.45) !important;
+    backdrop-filter: none !important;
+  }
+
+  /* layout-card images scale */
+  .layout-card .feature-image img,
+  .plan-card .card-media img,
+  .feature-image img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover;
+  }
+
+  /* glass ui frame: reduce absolute offsets used on desktop */
+  .glass-ui-frame .logo-chip, .glass-ui-frame .brand-block {
+    gap: 8px !important;
+  }
+
+  /* Accordion slider: keep content readable */
+  .slide .slide-content {
+    left: 18px !important;
+    right: 18px !important;
+    bottom: 18px !important;
+  }
+  .slide-number {
+    font-size: 36px !important;
+    left: 16px !important;
+    bottom: 14px !important;
+  }
+  .car-name {
+    font-size: 20px !important;
+  }
+
+  /* Navigation arrows smaller and nearer edges */
+  .navigation-arrows {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 18px !important;
+  }
+}
+
+/* =====================================================
+   Narrow tablets and large phones — 768px and below
+   (this is the breakpoint where your layout previously broke)
+   Adjust each section to stack, remove absolute offsets, reduce font sizes
+   ===================================================== */
+@media (max-width: 768px) {
+  /* GENERAL: reduce large paddings that cause overflow */
+  .container, .container-fluid {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Header: smaller logo and inline controls */
+  .web-logo img {
+    width: 110px !important;
+  }
+  .menu-toggle-btn {
+    font-size: 18px !important;
+    padding: .35rem .5rem !important;
+  }
+
+  /* HERO: stack left & right panels fully */
+  .hero-section .row.d-flex.align-items-center {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .header-left-panel, .header-right-panel {
+    border-right: none !important;
+    padding: 1.2rem 0.8rem !important;
+  }
+  .header-left-panel .hero-stat-card {
+    margin-top: 0 !important;
+  }
+
+  /* GLASS LAYOUT: stack columns & hide decorative vertical bars */
+  .glass-ui-frame {
+    padding: 20px !important;
+  }
+  .glass-vertical-bar {
+    display: none !important;
+  }
+  .glass-top-bar {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  /* CARDS: make pricing / investor / layout cards full width */
+  .pricing-card, .investor-card, .layout-card, .feature-card, .plan-card {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box;
+  }
+
+  /* INVESTOR CHARTS: responsive height */
+  .chart-container {
+    min-height: 180px !important;
+  }
+
+  /* ACCORDION SLIDER: fully vertical and controlled height */
+  .accordion-slider {
+    display: block !important;
+  }
+  .accordion-slider .slide {
+    width: 100% !important;
+    min-height: 180px !important;
+    margin-bottom: 12px !important;
+    border-radius: 12px !important;
+  }
+  .accordion-slider .slide.active {
+    min-height: 260px !important;
+  }
+
+  /* ensure slide content is visible */
+  .slide .slide-content, .slide .car-name, .slide .car-subtitle {
+    position: relative !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Video hero: reduce height and keep poster visible */
+  .video-bg-section {
+    padding: 3.2rem 0 !important;
+  }
+  .video-bg-section .bg-video {
+    min-height: 260px !important;
+  }
+
+  /* NAV arrows hide or reduce clutter */
+  .navigation-arrows {
+    display: none !important;
+  }
+
+  /* REVIEWS: stack rows and stop marquee movement */
+  .reviews-row {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  /* daily-quote: if present, hide for mobile */
+  .daily-quote {
+    display: none !important;
+  }
+
+  /* Footer & contact block spacing */
+  .contact-block, .site-footer {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* =====================================================
+   Narrow phones — 600px and below: compact sizes, full-width buttons
+   ===================================================== */
+@media (max-width: 600px) {
+  .landing-card {
+    padding: 1.2rem !important;
+  }
+  .landing-card h1, .landing-card .display-5 {
+    font-size: 1.2rem !important;
+    line-height: 1.25 !important;
+  }
+  .btn-accent, .btn {
+    padding: .7rem .8rem !important;
+    font-size: 0.92rem !important;
+  }
+
+  /* reduce image sizes sitewide that were fixed widths */
+  img.img-fluid, .feature-image img, .layout-card img, .plan-card img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* accordion slider: compress text and spacing */
+  .slide .slide-number {
+    font-size: 26px !important;
+  }
+  .car-name {
+    font-size: 16px !important;
+  }
+
+  /* investor cards stack */
+  .investor-card {
+    padding: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+}
+
+/* =====================================================
+   Small phones — 425px and below
+   (fine-tune labels, icon sizes, hide non-essential floats)
+   ===================================================== */
+@media (max-width: 425px) {
+  /* Mini hero adjustments */
+  .landing-card h1 {
+    font-size: 1rem !important;
+  }
+  .landing-card img {
+    width: 140px !important;
+  }
+
+  /* reduce paddings sitewide */
+  section, .container, .container-fluid {
+    padding-left: 0.6rem !important;
+    padding-right: 0.6rem !important;
+  }
+
+  /* reduce glass card text sizes */
+  .glass-info-card .h2, .glass-info-card p, .glass-info-card .info-meta {
+    font-size: 0.9rem !important;
+  }
+
+  /* small nav controls */
+  .menu-toggle-btn {
+    padding: .25rem .4rem !important;
+    font-size: 16px !important;
+  }
+
+  /* reviews/cards smaller and readable */
+  .reviews-card, .pricing-card {
+    width: 92vw !important;
+    margin: 0 auto 1rem auto !important;
+  }
+}
+
+/* =====================================================
+   Very small screens — 375px / 360px / 320px tweaks
+   ===================================================== */
+@media (max-width: 375px) {
+  .landing-card h1 { font-size: 0.95rem !important; }
+  .landing-card .lead { font-size: 0.85rem !important; }
+  .card-title p, .card-para p { font-size: 0.82rem !important; }
+}
+
+@media (max-width: 320px) {
+  .landing-card h1 { font-size: 0.85rem !important; }
+  .btn-accent { font-size: 0.85rem !important; padding: .6rem .6rem !important; }
+}

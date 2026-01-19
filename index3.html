@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>Myron Dynasty | Luxury Open Plots in Manneguda, Vikarabad - Elite Investment</title>
+    <meta name="description" content="Discover Myron Dynasty: 100+ Acre premium open plot venture near Chevella-Vikarabad Highway. HMDA & RERA approved. Luxury living with 50+ amenities and high ROI potential.">
+    <meta name="keywords" content="Myron Dynasty, Manneguda plots, Vikarabad real estate, luxury open plots, investment plots Hyderabad, RERA approved plots, Chevella Highway">
+    <meta name="author" content="Myron Homes">
+    
+    <!-- Open Graph/Social Media Tags -->
+    <meta property="og:title" content="Myron Dynasty | Luxury Open Plots in Manneguda, Vikarabad - Elite Investment">
+    <meta property="og:description" content="100+ Acre premium open plot venture with 50+ amenities and high ROI potential.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://myrondynasty.in/">
+    <!-- You would replace content with an actual image URL for sharing -->
+    <meta property="og:image" content="https://placehold.co/1200x630/d6a74b/1e232c?text=MYRON+DYNASTY"> 
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts for Luxury Aesthetic -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <!-- Preloader Placeholder -->
+    <!-- In a real deployment, a CSS/JS animated preloader would go here. For simplicity and stability, we skip complex preloader JS but include the logic structure. -->
+
+    <!-- Fixed Header with Toggle -->
+    <header class="position-fixed top-0 start-0 end-0 bg-main shadow-sm z-3">
+        <div class="container-fluid py-3 px-4 d-flex justify-content-between align-items-center">
+            <a href="#"><img src="images/logo.png" width="170" height="100"></a>
+            <div class="d-flex align-items-center">
+                <a href="#concierge-widget" class="btn btn-sm btn-accent d-none d-md-block me-3" onclick="showConcierge()">Enquire Now</a>
+                <button class="menu-toggle-btn" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Full Screen Navigation Overlay (PREMIUM CARD / GOLD GRADIENT) -->
+    <div id="fullscreenMenu" class="fullscreen-menu d-flex flex-column justify-content-center align-items-center text-center">
+        <button class="menu-close-btn menu-toggle-btn" onclick="toggleMenu()">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="menu-content-wrapper">
+            <div class="row align-items-start">
+                
+                <!-- Column 1: Logo & Menu Title -->
+                <div class="col-md-3 text-start d-flex flex-column">
+                     <a href="#" class="mb-2"><img src="images/logo.png" width="200" height="120"></a>
+                   
+                    <div class="menu-social mt-auto d-flex d-md-block">
+                         <a href="#"><i class="fab fa-twitter"></i></a>
+                         <a href="#"><i class="fab fa-facebook-f"></i></a>
+                         <a href="#"><i class="fab fa-instagram"></i></a>
+                         <a href="#"><i class="fab fa-youtube"></i></a>
+                         <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Main Navigation Links -->
+                <div class="col-md-5 text-start">
+                     <p class="text-dark opacity-75 small mb-0">MENU</p>
+                    <nav class="d-flex flex-column">
+                        <a href="#hero" class="menu-link" onclick="toggleMenu()">HOME</a>
+                        <a href="#why-dynasty" class="menu-link" onclick="toggleMenu()">WHY DYNASTY?</a>
+                        <a href="#price-list" class="menu-link" onclick="toggleMenu()">PLOTS & PRICE</a>
+                        <a href="#location" class="menu-link" onclick="toggleMenu()">LOCATION</a>
+                        <a href="#testimonials" class="menu-link" onclick="toggleMenu()">TESTIMONIALS</a>
+                        <a href="#footer" class="menu-link" onclick="toggleMenu()">CONTACT</a>
+                    </nav>
+                </div>
+
+                <!-- Column 3: Contact Info & Map/CTA -->
+                <div class="col-md-4 text-start d-flex flex-column justify-content-between" style="min-height: 60vh;">
+                    <div class="menu-contact-info menu-info">
+                        <p><strong>Expert Sales:</strong> <a href="tel:+919704919555" class="text-dark">+91 9704919555</a></p>
+                        <p><strong>Email:</strong> info@myronhomes.in</p>
+                        <p class="mt-4">
+                            Manneguda Village, <br>
+                            Near Chevella-Vikarabad Highway, <br>
+                            Hyderabad, Telangana, India
+                        </p>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=Manneguda,+Telangana+501102" target="_blank" class="btn btn-light mt-4" style="color: var(--color-accent-dark); font-weight: 600;">
+                            VIEW MAP <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="daily-quote menu-info d-none d-md-block">
+                        <p class="mb-0 small">"The biggest advantage of MyronHomes is the prime location of their properties—strategically placed close to the city for easy access."</p>
+                        <p class="small mt-1">— Rohan, Satisfied Investor</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- 1. Creative and Smooth Animated Hero Slider -->
+        <section id="hero" class="hero-section">
+            <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <div class="hero-image-placeholder d-flex align-items-center" >
+                            <div class="container">
+                                <h1 class="hero-title text-white">DISCOVER YOUR<br>IDEAL PROPERTIES</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <div class="hero-image-placeholder d-flex align-items-center">
+                            <div class="container">
+                                <h1 class="hero-title text-white">THE FUTURE OF<br>LUXURY INVESTMENT</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                        <div class="hero-image-placeholder d-flex align-items-center">
+                            <div class="container">
+                                <h1 class="hero-title text-white">HMDA & RERA<br>APPROVED PLOTS</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Slider Arrows -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                    <span class="d-flex justify-content-center align-items-center"><i class="fas fa-chevron-left"></i></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                    <span class="d-flex justify-content-center align-items-center"><i class="fas fa-chevron-right"></i></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+
+                <!-- Animated Gold Stat Card -->
+                <div class="hero-stat-card text-center" id="heroStatCard">
+                    <!-- Updated Content Structure for High Priority Info -->
+                    <p class="h5 mb-2" style="font-family: var(--font-serif); font-weight: 600;">Luxurious Tendency to Invest in the next big investment corridor!</p>
+                    <p class="stat-label mb-1">MANNEGUDA | Chevella - Vikarabad Highway</p>
+                    <h3 class="h4 mb-3 text-dark" style="font-family: var(--font-serif); font-weight: 700;">Crafting Dreams into reality immerse Yourself by investing in Premium Open Plots.</h3>
+                    
+                    <div class="d-flex justify-content-around text-center mb-3 pt-2 border-top border-light opacity-75">
+                        <div class="col-4">
+                            <div class="animated-stat small" data-target="100">0</div>
+                            <small class="stat-label">Acres Project</small>
+                        </div>
+                        <div class="col-4">
+                            <div class="animated-stat small" data-target="750">0</div>
+                            <small class="stat-label">Villa Plots</small>
+                        </div>
+                        <div class="col-4">
+                            <div class="animated-stat small" data-target="50">0</div>
+                            <small class="stat-label">Amenities</small>
+                        </div>
+                    </div>
+                    
+                    <p class="h4 mt-3 mb-2" style="font-family: var(--font-serif); font-weight: 900;">Starting Price: ₹ 27 Lakhs*</p>
+                    <a href="#concierge-widget" class="btn btn-purple btn-sm mt-3" onclick="showConcierge()">Enquiry Now</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CREDIBILITY/STATISTICS SECTION (Inspired by $4B+ block) -->
+        <section id="credibility" class="py-5">
+            <div class="container pt-5">
+                <div class="row align-items-center pb-4">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <h2 class="section-header-title">THE BEST QUALITY AND THE BEST PRICE</h2>
+                        <p class="lead">We offer a variety of properties, including houses, apartments, and open plots, to find the right property and provide personalized service. Secure your future in Vikarabad's growing tourist hub.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row text-center">
+                            <div class="col-md-4 mb-3">
+                                <div class="p-3 border-end border-1">
+                                    <p class="h1 mb-1" style="color: var(--color-accent-dark);">100+</p>
+                                    <p class="text-muted small">Acres Project Area</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="p-3 border-end border-1">
+                                    <p class="h1 mb-1" style="color: var(--color-accent-dark);">16.8%</p>
+                                    <p class="text-muted small">Expected CAGR of return</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="p-3">
+                                    <p class="h1 mb-1" style="color: var(--color-accent-dark);">1500+</p>
+                                    <p class="text-muted small">Satisfied Investors</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="container"><hr class="section-divider"></div>
+
+        <!-- 2. Why Myron Dynasty? (Gradient Hover Cards) -->
+        <section id="why-dynasty" class="py-5">
+            <div class="container">
+                <header class="section-header text-center mb-5">
+                    <h2 class="section-header-title">WHY MYRON DYNASTY?</h2>
+                    <p>A piece of paradise in a premium open plot venture, thoughtfully designed for those who crave luxury, leisure, and lasting value.</p>
+                </header>
+
+                <div class="row g-4">
+                    <!-- Feature 1: The Grand Clubhouse -->
+                    <div class="col-md-4">
+                        <div class="hover-card">
+                            <div class="hover-card-content text-center">
+                                <i class="fas fa-building"></i>
+                                <h3>25,000 Sq. Ft. Clubhouse</h3>
+                                <p class="text-muted">The centerpiece built to elevate everyday living. Your social and leisure hub.</p>
+                                <img src="" class="img-fluid rounded-lg mt-3" alt="Clubhouse Interior"/>
+                            </div>
+                            <div class="hover-card-overlay">
+                                <div>
+                                    <h4 class="mb-2">Leisure & Wellness</h4>
+                                    <p class="small">Indoor games, mini theatre, fine dining spaces, and wellness zones crafted to create experiences beyond the ordinary.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Feature 2: Lifestyle Amenities -->
+                    <div class="col-md-4">
+                        <div class="hover-card">
+                            <div class="hover-card-content text-center">
+                                <i class="fas fa-swimmer"></i>
+                                <h3>50+ Luxurious Amenities</h3>
+                                <p class="text-muted">High-end facilities, making it the ultimate destination for investment and lifestyle.</p>
+                                <img src="" class="img-fluid rounded-lg mt-3" alt="Swimming Pool View"/>
+                            </div>
+                            <div class="hover-card-overlay">
+                                <div>
+                                    <h4 class="mb-2">Active Living</h4>
+                                    <p class="small">Lush parks, kids' area, senior citizen corner, gym & yoga deck supporting an active, balanced lifestyle.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Feature 3: Investment Value -->
+                    <div class="col-md-4">
+                        <div class="hover-card">
+                            <div class="hover-card-content text-center">
+                                <i class="fas fa-chart-line"></i>
+                                <h3>Lasting Value & ROI</h3>
+                                <p class="text-muted">Premium open plots in a luxurious environment—an invitation to elevated living and secure returns.</p>
+                                <img src="" class="img-fluid rounded-lg mt-3" alt="Secure Investment Plot"/>
+                            </div>
+                            <div class="hover-card-overlay">
+                                <div>
+                                    <h4 class="mb-2">Investment Hub</h4>
+                                    <p class="small">Secure your place in a landmark community strategically positioned for Vikarabad's rapid growth.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container"><hr class="section-divider"></div>
+
+        <!-- 3. Manneguda Venture Price List (Creative Gold Cards) -->
+        <section id="price-list" class="py-5">
+            <div class="container">
+                <header class="section-header text-center mb-5">
+                    <h2 class="section-header-title">MANNEGUDA VENTURE PRICE LIST</h2>
+                    <p>Transparent and competitive pricing for premium open plots in Blocks A & B.</p>
+                </header>
+
+                <div class="row g-4 justify-content-center">
+                    
+                    <!-- Plot Type 1: BLOCK-B -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="price-card">
+                            <h4 class="mb-0">ON-GOING PLOTS BLOCK-B</h4>
+                            <p class="price-value">₹ 17,999<span class="small font-weight-normal">/Sq.yd</span></p>
+                            <p class="price-remark text-muted">*Price effective from 20th Sep -2024</p>
+                            <a href="#concierge-widget" class="btn btn-accent btn-sm mt-3" onclick="showConcierge()">Get Full Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Plot Type 2: BLOCK-A (Highlighted) -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="price-card price-card-highlight">
+                            <h4 class="mb-0 text-white">ON-GOING PLOTS BLOCK-A</h4>
+                            <p class="price-value">₹ 19,999<span class="small font-weight-normal text-white">/Sq.yd</span></p>
+                            <p class="price-remark text-white opacity-75">*Premium Block Pricing</p>
+                            <a href="#concierge-widget" class="btn btn-light btn-sm mt-3" onclick="showConcierge()">Book Now</a>
+                        </div>
+                    </div>
+
+                    <!-- Plot Type 3: ROAD FACING -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="price-card">
+                            <h4 class="mb-0">80 FT ROAD FACING</h4>
+                            <p class="price-value">₹ 24,999<span class="small font-weight-normal">/Sq.yd</span></p>
+                            <p class="price-remark text-muted">*Limited Availability</p>
+                            <a href="#concierge-widget" class="btn btn-accent btn-sm mt-3" onclick="showConcierge()">Check Availability</a>
+                        </div>
+                    </div>
+
+                    <!-- Extra Charges -->
+                    <div class="col-12 mt-4">
+                        <div class="row text-center small text-muted g-2">
+                            <div class="col-md-4">
+                                <strong style="color: var(--color-accent-dark);">EAST FACING:</strong> ₹ 199/- per Sq.yd extra
+                            </div>
+                            <div class="col-md-4">
+                                <strong style="color: var(--color-accent-dark);">OTHER CORNERS:</strong> ₹ 499/- per Sq.yd extra
+                            </div>
+                            <div class="col-md-4">
+                                <strong style="color: var(--color-accent-dark);">NORTH EAST CORNERS:</strong> ₹ 999/- per Sq.yd extra
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        
+        <div class="container"><hr class="section-divider"></div>
+
+        <!-- 4. Layout Plan (Architectural Conceptual Section) -->
+        <section id="layout-plan" class="py-5">
+            <div class="container">
+                <header class="section-header text-center mb-5">
+                    <h2 class="section-header-title">METICULOUSLY PLANNED LAYOUT</h2>
+                    <p>HMDA approved and designed with Vaastu compliance, ensuring harmony and future appreciation.</p>
+                </header>
+                
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <!-- Placeholder for detailed plan diagram - mimicking "DELUXE PORTION" sketch -->
+                        <img src="https://placehold.co/800x600/f0f0f0/666666?text=Conceptual+Layout+Diagram" class="img-fluid rounded-lg shadow-lg" alt="Conceptual Layout Plan Diagram"/>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3 class="mb-4" style="color: var(--color-accent-dark);">Scanning and Modeling Precision</h3>
+                        <p class="lead">The entire 100+ acre venture follows a sequential development and modeling process with the subsequent mapping of plot dimensions, roads, and amenities.</p>
+                        <ul class="list-unstyled mt-4">
+                            <li class="d-flex align-items-center mb-3">
+                                <i class="fas fa-check-circle me-3" style="color: var(--color-accent);"></i>
+                                <span>Clear Titles and immediate registration.</span>
+                            </li>
+                            <li class="d-flex align-items-center mb-3">
+                                <i class="fas fa-road me-3" style="color: var(--color-accent);"></i>
+                                <span>200 FT Wide Road access via 6-lane Express Highway.</span>
+                            </li>
+                            <li class="d-flex align-items-center mb-3">
+                                <i class="fas fa-tree me-3" style="color: var(--color-accent);"></i>
+                                <span>Lush avenue plantations and landscaped parks.</span>
+                            </li>
+                            <li class="d-flex align-items-center mb-3">
+                                <i class="fas fa-lock me-3" style="color: var(--color-accent);"></i>
+                                <span>24/7 Security and All-around compound wall.</span>
+                            </p>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="container"><hr class="section-divider"></div>
+
+        <!-- 6. Why To Invest In Dynasty & 7. Location Advantages (Combined) -->
+        <section id="investment-advantages" class="py-5">
+            <div class="container">
+                <header class="section-header text-center mb-5">
+                    <h2 class="section-header-title">THE DYNASTY INVESTMENT EDGE</h2>
+                    <p>Unmatched location, infrastructure, and growth potential make this your ideal investment corridor.</p>
+                </header>
+
+                <div class="row g-4">
+                    <!-- Investment Pillars -->
+                    <div class="col-lg-6">
+                        <h3 class="mb-4" style="font-family: var(--font-serif); color: var(--color-text-dark);">WHY TO INVEST IN DYNASTY</h3>
+                        <div class="p-4 bg-white rounded-lg shadow-sm mb-3 border-start border-3" style="border-color: var(--color-accent) !important;">
+                            <h4 style="color: var(--color-accent-dark);">Investment Safety</h4>
+                            <p class="m-0">Safe, secure, and trustworthy investment opportunities with promising returns. Build your future confidently in Vikarabad's growing tourist hub.</p>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg shadow-sm mb-3 border-start border-3" style="border-color: var(--color-accent) !important;">
+                            <h4 style="color: var(--color-accent-dark);">Infrastructure Boost</h4>
+                            <p class="m-0">Multiple infrastructural developments are boosting the region's value. Dynasty offers modern amenities for a future-ready lifestyle.</p>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg shadow-sm border-start border-3" style="border-color: var(--color-accent) !important;">
+                            <h4 style="color: var(--color-accent-dark);">Development Trajectory</h4>
+                            <p class="m-0">Rapid growth and expansion plans make Dynasty the ideal choice. Invest now to be part of Vikarabad's rising success story.</p>
+                        </div>
+                    </div>
+
+                    <!-- Location Advantages -->
+                    <div class="col-lg-6">
+                        <h3 class="mb-4" style="font-family: var(--font-serif); color: var(--color-text-dark);">STRATEGIC LOCATION ADVANTAGES</h3>
+                        <div class="p-4 bg-white rounded-lg shadow-sm mb-3 border-start border-3" style="border-color: var(--color-accent) !important;">
+                            <h4 style="color: var(--color-accent-dark);">Mobility & IT Sectors</h4>
+                            <p class="m-0">Hyundai's monumental investment (1400 crores) and Welspun Group's injection (Rs. 250 crores) into Vikarabad's IT sector.</p>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg shadow-sm mb-3 border-start border-3" style="border-color: var(--color-accent) !important;">
+                            <h4 style="color: var(--color-accent-dark);">Defence & Pharma</h4>
+                            <p class="m-0">Navy to set up its 2nd VLF (radar) communication station, plus the Telangana Govt's plan to set up a Pharma Village in Vikarabad.</p>
+                        </div>
+                        <div class="p-4 bg-white rounded-lg shadow-sm border-start border-3" style="border-color: var(--color-accent) !important;">
+                            <h4 style="color: var(--color-accent-dark);">Tourism Development</h4>
+                            <p class="m-0">Allocated Rs.100 Crores for the development of tourism in Anantagiri Hills under the Swadeshi Darshan Programme.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container"><hr class="section-divider"></div>
+
+        <!-- 5. Location Highlights (Icon Grid) -->
+        <section id="location" class="py-5">
+            <div class="container">
+                <header class="section-header text-center mb-5">
+                    <h2 class="section-header-title">MANNEGUDA LOCATION HIGHLIGHTS</h2>
+                    <p>Perfectly placed for seamless connectivity and a serene lifestyle.</p>
+                </header>
+
+                <div class="row g-4 location-icon-grid text-center">
+                    <div class="col-md-4 col-lg-2">
+                        <div class="card p-3">
+                            <i class="fas fa-route"></i>
+                            <h6 class="mt-2">200 FT Wide Road</h6>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-2">
+                        <div class="card p-3">
+                            <i class="fas fa-car"></i>
+                            <h6 class="mt-2">5 Mins to Vikarabad District</h6>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-2">
+                        <div class="card p-3">
+                            <i class="fas fa-mountain"></i>
+                            <h6 class="mt-2">12 Mins to Anantagiri Hills</h6>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-2">
+                        <div class="card p-3">
+                            <i class="fas fa-church"></i>
+                            <h6 class="mt-2">15 Mins to Ananta Temple</h6>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-2">
+                        <div class="card p-3">
+                            <i class="fas fa-warehouse"></i>
+                            <h6 class="mt-2">35 Kms to Amazon Warehouse</h6>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-2">
+                        <div class="card p-3">
+                            <i class="fas fa-plane"></i>
+                            <h6 class="mt-2">65 Mins from Shamshabad Airport</h6>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-5 text-center">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Manneguda,+Telangana+501102" target="_blank" class="btn btn-outline-secondary">View Route Map <i class="fas fa-map-marked-alt ms-2"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <div class="container"><hr class="section-divider"></div>
+
+        <!-- 8. Modern Creative Client Testimonials -->
+        <section id="testimonials" class="testimonials-section">
+            <div class="container">
+                <header class="section-header text-center mb-5">
+                    <h2 class="text-white" style="font-family: var(--font-serif);">HEAR FROM OUR ELITE CUSTOMERS</h2>
+                    <p class="text-light opacity-75">Trust and excellence validated by our satisfied investors.</p>
+                </header>
+
+                <div id="testimonialCarousel" class="carousel slide testimonial-carousel" data-bs-ride="carousel" data-bs-interval="6000">
+                    <div class="carousel-inner">
+                        <!-- Testimonial 1: Aarav -->
+                        <div class="carousel-item active">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class="testimonial-card">
+                                        <p class="testimonial-quote">"MyronHomes is known for developing properties in prime, high-growth locations, strategically positioned close to the city. Surrounded by rapid infrastructure and commercial expansion, our project offers unmatched convenience and exceptional investment potential."</p>
+                                        <p class="testimonial-author">— Aarav, Investor</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Testimonial 2: Vivaan -->
+                        <div class="carousel-item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class="testimonial-card">
+                                        <p class="testimonial-quote">"When it comes to real estate, location is everything. Myron Dynasty offers premium open plots in Manneguda, home to one of India's largest adventure parks and one of Hyderabad's fastest-growing hubs. It's truly prime."</p>
+                                    <p class="testimonial-author">— Vivaan, Home Buyer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Testimonial 3: Aditya -->
+                        <div class="carousel-item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class="testimonial-card">
+                                        <p class="testimonial-quote">"We're thrilled to share that we've purchased our very first open plot in Myron Dynasty. Peaceful, quiet, and easily accessible from the main road—this picturesque haven is where our dream home will soon come to life."</p>
+                                    <p class="testimonial-author">— Aditya, Plot Owner</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial Arrows -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                        <span class="d-flex justify-content-center align-items-center"><i class="fas fa-arrow-left"></i></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                        <span class="d-flex justify-content-center align-items-center"><i class="fas fa-arrow-right"></i></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 9. Modern Creative Footer -->
+    <footer id="footer" class="footer-elite">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-white mb-3" style="font-family: var(--font-serif);">Myron Dynasty</h5>
+                    <p class="small">Crafting Dreams into reality. Immerse yourself by investing in premium open plots near Chevella - Vikarabad Highway.</p>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="text-white">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#why-dynasty">Why Dynasty?</a></li>
+                        <li><a href="#price-list">Price List</a></li>
+                        <li><a href="#location">Location</a></li>
+                        <li><a href="#investment-advantages">Investment Edge</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h6 class="text-white">Contact Info</h6>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-phone-alt me-2" style="color: var(--color-accent);"></i> +91 9704919555</li>
+                        <li><i class="fas fa-envelope me-2" style="color: var(--color-accent);"></i> info@myronhomes.in</li>
+                        <li><i class="fas fa-map-marker-alt me-2" style="color: var(--color-accent);"></i> Manneguda, Chevella-Vikarabad Highway</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h6 class="text-white">Follow Us</h6>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 border-top border-secondary pt-3">
+                <div class="col-md-6">
+                    <p class="small m-0">Copyrights &copy; 2025 - MYRON'S DYNASTY. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="small me-3">Privacy Policy</a>
+                    <a href="#" class="small">Terms & Condition</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Concierge Chatbot Widget (Always Open by Default) -->
+    <div id="concierge-widget">
+        <div class="concierge-header" onclick="toggleConcierge()">
+            <!-- Icon is correctly inside the span for the open state -->
+            <span class="d-flex align-items-center header-content">
+                <i class="fas fa-comments me-2"></i>
+                <span class="header-title">Dynasty Concierge - Enquire Now</span>
+            </span>
+            <span id="concierge-toggle-icon" class="ms-auto"><i class="fas fa-minus"></i></span>
+        </div>
+        <div class="concierge-body" id="concierge-body">
+            <p class="small text-center text-muted mb-3">Let our investment expert assist you. Fill out the form below:</p>
+            <form id="enquire-form">
+                <input type="text" id="enquiryName" placeholder="Your Name" required>
+                <input type="email" id="enquiryEmail" placeholder="Email Address" required>
+                <input type="tel" id="enquiryPhone" placeholder="Phone Number" required>
+                <textarea id="enquiryMessage" placeholder="Your Message or Query..." rows="3"></textarea>
+                <button type="submit" class="btn btn-accent w-100">Send Enquiry</button>
+            </form>
+            <p id="enquiry-feedback" class="small mt-3 text-center d-none"></p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const concierge = document.getElementById('concierge-widget');
+            
+            // --- Function to toggle Fullscreen Menu ---
+            window.toggleMenu = function() {
+                const menu = document.getElementById('fullscreenMenu');
+                menu.classList.toggle('menu-open');
+                document.body.style.overflow = menu.classList.contains('menu-open') ? 'hidden' : 'auto';
+            }
+
+            // --- Function to toggle Concierge Chatbot ---
+            window.toggleConcierge = function() {
+                concierge.classList.toggle('concierge-minimized');
+                
+                // Toggle the correct icon display based on state
+                const headerTitle = concierge.querySelector('.header-title');
+                const chatIcon = concierge.querySelector('.concierge-header i');
+
+                if (concierge.classList.contains('concierge-minimized')) {
+                    // Minimized state: Hide title and show only large chat icon
+                    if(headerTitle) headerTitle.style.display = 'none';
+                    if(chatIcon) chatIcon.style.display = 'block';
+                } else {
+                    // Open state: Show title and minus icon
+                    concierge.querySelector('#concierge-toggle-icon').innerHTML = '<i class="fas fa-minus"></i>';
+                    if(headerTitle) headerTitle.style.display = 'inline';
+                    if(chatIcon) chatIcon.style.display = 'inline-block';
+                }
+            }
+            
+            // --- Function to show Concierge (called by CTA button) ---
+            window.showConcierge = function() {
+                concierge.classList.remove('concierge-minimized');
+                concierge.querySelector('#concierge-toggle-icon').innerHTML = '<i class="fas fa-minus"></i>';
+                const headerTitle = concierge.querySelector('.header-title');
+                const chatIcon = concierge.querySelector('.concierge-header i');
+                if(headerTitle) headerTitle.style.display = 'inline';
+                if(chatIcon) chatIcon.style.display = 'inline-block';
+            }
+
+            // --- Animated Stat Counter Logic ---
+            const animateStats = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const stats = document.querySelectorAll('.animated-stat');
+                        stats.forEach(stat => {
+                            const target = parseInt(stat.getAttribute('data-target'));
+                            let current = 0;
+                            const increment = target / 100;
+                            const interval = setInterval(() => {
+                                current += increment;
+                                if (current >= target) {
+                                    clearInterval(interval);
+                                    stat.textContent = target.toLocaleString() + (target === 100 ? '+' : ''); // Adds '+' to 100
+                                } else {
+                                    stat.textContent = Math.ceil(current).toLocaleString();
+                                }
+                            }, 20); // Speed of animation
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            const statObserver = new IntersectionObserver(animateStats, {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5 
+            });
+
+            const statCard = document.getElementById('heroStatCard');
+            if (statCard) {
+                statObserver.observe(statCard);
+            }
+
+            // --- Form Submission Handling (Placeholder) ---
+            const enquireForm = document.getElementById('enquire-form');
+            enquireForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const feedback = document.getElementById('enquiry-feedback');
+                feedback.classList.remove('d-none', 'text-danger', 'text-success');
+                
+                const name = document.getElementById('enquiryName').value;
+                const phone = document.getElementById('enquiryPhone').value;
+
+                // Simple validation/feedback
+                if (name && phone) {
+                    feedback.textContent = `Thank you, ${name}! Your request has been sent. An expert will call you shortly on ${phone}.`;
+                    feedback.classList.add('text-success');
+                    enquireForm.reset();
+                } else {
+                    feedback.textContent = 'Please fill out your Name and Phone Number.';
+                    feedback.classList.add('text-danger');
+                }
+            });
+
+            // Initialize Concierge Icon on load if it's open (to ensure the minus is visible)
+            window.showConcierge();
+        });
+    </script>
+</body>
+
+</html>

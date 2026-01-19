@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Advanced 3D Hologram Building</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background: radial-gradient(circle at top, #00f5ff 0, #020617 50%, #000 100%);
+      font-family: system-ui, sans-serif;
+    }
+    #holoCanvas {
+      width: 100vw;
+      height: 100vh;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="holoCanvas"></canvas>
+
+  <script type="module">
+    import * as THREE from "https://unpkg.com/three@0.161.0/build/three.module.js";
+
+    const canvas = document.getElementById("holoCanvas");
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      45,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      100
+    );
+    camera.position.set(10, 10, 16);
+
+    const renderer = new THREE.WebGLRenderer({
+      canvas,
+      antialias: true,
+      alpha: true
+    });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // Hologram base color
+    const HOLO = 0x00f5ff;
+
+    // Soft “fog” to push background
+    scene.fog = new THREE.FogExp2(0x00f5ff, 0.09);
+
+    // Floor grid (hologram style)
+    const grid = new THREE.GridHelper(40, 40, HOLO, HOLO);
+    grid.material.opacity = 0.2;
+    grid.material.transparent = true;
+    scene.add(grid);
+
+    // Group for main hologram city
+    const cityGroup = new THREE.Group();
+    scene.add(cityGroup);
+
+    const wireMat = new THREE.LineBasicMaterial({
+      color: HOLO,
+      transparent: true,
+      opacity: 0.9
+    });
+
+    const solidMat = new THREE.MeshBasicMaterial({
+      color: HOLO,
+      transparent: true,
+      opacity: 0.12
+    });
+
+    // Helper to create a hologram box (wireframe + faint solid)
+    function createHoloBox(w, h, d) {
+      const geo = new THREE.BoxGeometry(w, h, d);
+
+      // solid core (very transparent)
+      const mesh = new THREE.Mesh(geo, solidMat);
+
+      // edges overlay
+      const edges = new THREE.EdgesGeometry(geo);
+      const lines = new THREE.LineSegments(edges, wireMat);
+
+      const g = new THREE.Group();
+      g.add(mesh);
+      g.add(lines);
+      return { group: g, mesh, lines, height: h };
+    }
+
+    // === MAIN TOWER (stacked segments like a real building) ===
+    const mainTower = new THREE.Group();
+    cityGroup.add(mainTower);
+
+    const segments = [];
+    let currentY = 0;
+
+    function addSegment(width, height, depth, gap = 0.02) {
+      const { group, mesh, lines, height: h } = createHoloBox(width, height, depth);
+      currentY += height / 2;
+      group.position.y = currentY;
+      mainTower.add(group);
+      segments.push({ group, mesh, lines, baseY: group.position.y, height });
+      currentY += height / 2 + gap;
+    }
+
+    // base podium
+    addSegment(6, 0.8, 6);
+    // middle blocks
+    addSegment(4.5, 2.4, 4.5);
+    addSegment(3.5, 2.2, 3.5);
+    addSegment(2.5, 2.0, 2.5);
+    // top block
+    addSegment(1.8, 1.8, 1.8);
+
+
+    // antenna
+    const antennaGeo = new THREE.CylinderGeometry(0.05, 0.05, 2, 12);
+    const antennaMat = new THREE.MeshBasicMaterial({
+      color: HOLO,
+      transparent: true,
+      opacity: 0.9
+    });
+    const antenna = new THREE.Mesh(antennaGeo, antennaMat);
+    antenna.position.y = currentY + 1.2;
+    mainTower.add(antenna);
+
+    // Glow pad under main tower
+    const glowGeo = new THREE.CircleGeometry(6, 64);
+    const glowMat = new THREE.MeshBasicMaterial({
+      color: HOLO,
+      transparent: true,
+      opacity: 0.80
+    });
+    const glow = new THREE.Mesh(glowGeo, glowMat);
+    glow.rotation.x = -Math.PI / 2;
+    glow.position.y = 0.01;
+    cityGroup.add(glow);
+
+    // === Surrounding smaller buildings ===
+    function addSideBuilding(w, h, d, x, z) {
+      const { group } = createHoloBox(w, h, d);
+      group.position.set(x, h / 2, z);
+      cityGroup.add(group);
+    }
+
+    addSideBuilding(2, 3, 2, -7, -3);
+    addSideBuilding(1.6, 2.4, 1.6, -4, 4);
+    addSideBuilding(1.8, 2.8, 1.8, 6, 2);
+    addSideBuilding(2.4, 3.4, 2.4, 4, -5);
+    addSideBuilding(1.4, 2.2, 1.4, -2, -7);
+
+    // === Vertical scan-line going up the main tower ===
+    const scanGeo = new THREE.PlaneGeometry(7, currentY + 3);
+    const scanMat = new THREE.MeshBasicMaterial({
+      color: HOLO,
+      transparent: true,
+      opacity: 0.18,
+      side: THREE.DoubleSide
+    });
+    const scanPlane = new THREE.Mesh(scanGeo, scanMat);
+    scanPlane.rotation.y = Math.PI / 4;
+    scanPlane.position.y = (currentY + 2) / 2;
+    mainTower.add(scanPlane);
+
+    // Make the scan-line look like a band (gradient via scaling)
+    scanPlane.scale.y = 0.03;
+
+    // Position city a bit forward
+    cityGroup.position.set(0, 0, 0);
+
+    // Animation loop
+    const clock = new THREE.Clock();
+
+    function animate() {
+      requestAnimationFrame(animate);
+      const t = clock.getElapsedTime();
+
+      // Rotate city slowly
+      cityGroup.rotation.y = t * 0.18;
+
+      // Hologram pulse (vertical breathing of segments)
+      const pulse = Math.sin(t * 2) * 0.08;
+      segments.forEach((seg, idx) => {
+        const offset = Math.sin(t * 2 + idx) * 0.04;
+        const scaleY = 1 + pulse + offset;
+        seg.group.scale.y = scaleY;
+        seg.group.position.y = seg.baseY * scaleY;
+      });
+
+      // Bounce antenna tip slightly
+      antenna.position.y = currentY + 1.2 + Math.sin(t * 4) * 0.12;
+
+      // Scan-line moving from bottom to top and looping
+      const scanHeight = currentY + 2;
+      const scanSpeed = 0.7;
+      const scanPos = ((t * scanSpeed) % 1) * scanHeight;
+      scanPlane.position.y = scanPos;
+      scanPlane.scale.y = 0.04 + Math.sin(t * 5) * 0.01;
+
+      // Camera gentle orbit + bob
+      camera.position.x = Math.cos(t * 0.2) * 16;
+      camera.position.z = Math.sin(t * 0.2) * 16;
+      camera.position.y = 9 + Math.sin(t * 0.4) * 0.5;
+      camera.lookAt(0, 4, 0);
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Resize handling
+    window.addEventListener("resize", () => {
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+    });
+  </script>
+</body>
+</html>

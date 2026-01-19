@@ -1,0 +1,723 @@
+  /* CSS Variables - Used for easy theme swapping */
+  :root {
+    --color-primary: #F0F0F0;
+    /* Off-White Base */
+    --color-secondary: #E5E5E5;
+    /* Light Gray for Sections */
+    --color-text-dark: #222;
+    /* Dark Text for High Contrast */
+    --color-accent: #d6a74b;
+    /* Brushed Gold Accent */
+    --color-accent-dark: #9D813F;
+    /* Dark Gold/Bronze */
+    --color-line: #DDDDDD;
+    /* Thin Divider Line */
+    --color-hero-bg: #EAEAEA;
+    /* Slightly darker background for hero */
+    --color-dark-bg: #2d3436;
+    /* Dark background for Testimonials/Footer */
+
+    /* Typography */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Source Sans 3', sans-serif;
+
+    /* Box Shadow for Depth (light theme) */
+    --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --shadow-accent: 0 0 20px rgba(214, 167, 75, 0.5);
+    /* Gold Glow */
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: linear-gradient(145deg, #0B1C3A, #031428);
+  color: #f9f9f9;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  .bg-main {
+     background: linear-gradient(145deg, #0B1C3A, #031428);
+    box-shadow: 0 0 16px rgba(28, 26, 58, 0.4);
+    color: #fff;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    color: #fff;
+    font-weight: 700;
+  }
+
+  /* --- Custom Hero Slider Icons --- */
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    display: none;
+    /* Hide default icons */
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    /* Centered Alignment Fix */
+    top: 50%;
+    transform: translateY(-50%);
+
+    border-radius: 8px;
+    opacity: 1;
+    transition: background-color 0.3s ease;
+  }
+
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .carousel-control-prev i,
+  .carousel-control-next i {
+    color: var(--color-accent);
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px rgba(214, 167, 75, 0.5);
+  }
+
+  /* --- Full Screen Menu (PREMIUM CARD / GOLD GRADIENT) --- */
+  .fullscreen-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* NEW: Gold Gradient Background */
+   background: linear-gradient(135deg, #b47e11 0%, #f7c948 25%, #ffd86f 50%, #f7c948 75%, #b47e11 100%);
+    z-index: 1050;
+    display: none;
+    overflow: auto;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  .menu-open {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Menu Layout Container */
+  .menu-content-wrapper {
+    max-width: 1400px;
+    width: 90%;
+    margin: auto;
+    padding: 50px 0;
+  }
+
+  .menu-link {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    /* Large, monumental links */
+    color: #000;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    line-height: 1.5;
+    font-weight: 700;
+  }
+
+  .menu-link:hover {
+    color: #222;
+    /* Dark hover for dramatic contrast */
+  }
+
+  .menu-toggle-btn {
+    z-index: 1060;
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.3s;
+    outline: none;
+  }
+
+  .menu-close-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: #FFFFFF;
+    /* White on Gold BG */
+    font-size: 2rem;
+    transition: color 0.3s;
+  }
+
+  .menu-close-btn:hover {
+    color: #222;
+    /* Dark hover */
+  }
+
+  .menu-info {
+   color: #3a3636;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .menu-info strong {
+    color: #000;
+    font-weight: 600;
+  }
+
+  .menu-social a {
+    color: #000;
+    font-size: 1.2rem;
+    margin-right: 20px;
+    transition: color 0.3s;
+  }
+
+  .menu-social a:hover {
+    color: #222;
+  }
+
+  .daily-quote {
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 20px;
+    margin-top: 50px;
+  }
+
+  /* --- Hero Section & Slider --- */
+  .hero-section {
+    background-color: var(--color-hero-bg);
+    padding-top: 80px;
+    /* Space for the fixed header */
+  }
+
+  .carousel-item {
+    transition: transform 2s cubic-bezier(0.8, 0, 0.2, 1);
+    /* Ultra Smooth Transition */
+  }
+
+  .hero-image-placeholder {
+    min-height: 650px;
+    background: linear-gradient(145deg, #0B1C3A, #031428);
+    position: relative;
+  }
+
+  .hero-title {
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Gold Gradient Card for Hero Stats */
+  .hero-stat-card {
+    background: linear-gradient(135deg,
+        #b47e11 0%,
+        #f7c948 25%,
+        #ffd86f 50%,
+        #f7c948 75%,
+        #b47e11 100%);
+    color: #000;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    padding: 3rem;
+    font-family: var(--font-sans);
+    position: absolute;
+    bottom: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 800px;
+    z-index: 10;
+  }
+
+  .stat-label {
+    font-weight: 300;
+    opacity: 0.9;
+    font-size: 0.9rem;
+  }
+
+  /* Stat Animation Styling */
+  .animated-stat {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #000;
+    /* White text on gold card */
+  }
+
+  /* --- Gradient Buttons --- */
+  .btn-accent {
+    background: linear-gradient(
+  135deg,
+  #b47e11 0%,
+  #f7c948 25%,
+  #ffd86f 50%,
+  #f7c948 75%,
+  #b47e11 100%
+);
+    color: #000;
+    padding: 12px 30px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(214, 167, 75, 0.4);
+  }
+
+  .btn-accent:hover {
+    background: linear-gradient(45deg, var(--color-accent-dark), var(--color-accent));
+    box-shadow: 0 8px 25px rgba(214, 167, 75, 0.6);
+    color: #000;
+    transform: translateY(-2px);
+  }
+  .btn-purple{
+  background: linear-gradient(135deg, #b47e11 0%, #f7c948 25%, #ffd86f 50%, #f7c948 75%, #b47e11 100%);
+  width: 28%;
+    color: #000;
+    padding: 12px 30px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    transition: all 0.3s 
+ease;
+    box-shadow: 0 5px 15px rgba(214, 167, 75, 0.4);
+  }
+
+  /* --- Sections and Dividers (Architectural Style) --- */
+  .section-divider {
+    border-top: 1px solid var(--color-line);
+    margin: 60px 0;
+  }
+
+  .section-header h2 {
+    font-size: 3rem;
+  }
+
+  .section-header p {
+    font-size: 1.1rem;
+    color: #666;
+  }
+
+  /* --- Gradient Hover Cards --- */
+  .hover-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #b47e11 0%, #f7c948 25%, #ffd86f 50%, #f7c948 75%, #b47e11 100%);
+    box-shadow: var(--shadow-light);
+    cursor: pointer;
+    position: relative;
+    min-height: 350px;
+  }
+
+  .hover-card-content {
+    padding: 30px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hover-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--color-accent-dark) 0%, var(--color-accent) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    transform: scale(0.95);
+  }
+
+  .hover-card:hover .hover-card-overlay {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .hover-card i {
+    color: var(--color-accent);
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    transition: color 0.4s ease;
+  }
+
+  .hover-card:hover i {
+    color: white;
+    /* Icons turn white on gold hover */
+  }
+
+  /* --- Price List Cards (Creative Gradient Grid) --- */
+  .price-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--color-line);
+    transition: all 0.3s ease;
+  }
+
+  .price-card-highlight {
+    background: linear-gradient(135deg, var(--color-accent-dark) 0%, var(--color-accent) 100%);
+    color: white;
+    border: none;
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .price-card-highlight h4,
+  .price-card-highlight .price-value {
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .price-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-accent-dark);
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  .price-remark {
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.8;
+  }
+
+  /* --- Location Highlight Icon Grid --- */
+  .location-icon-grid .card {
+    border: none;
+    background: var(--color-primary);
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+    box-shadow: none;
+    text-align: center;
+  }
+
+  .location-icon-grid .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  .location-icon-grid i {
+    font-size: 2.5rem;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+  }
+
+  /* --- Testimonials Section --- */
+  .testimonials-section {
+    background-color: var(--color-dark-bg);
+    color: white;
+    padding: 80px 0;
+  }
+
+  .testimonial-carousel {
+    background-color: var(--color-dark-bg);
+  }
+
+  .testimonial-card {
+    background-color: #3b4252;
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .testimonial-quote {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    color: #f0f2f5;
+    /* Light text for dark background */
+  }
+
+  .testimonial-author {
+    font-weight: 600;
+    color: var(--color-accent);
+    font-family: var(--font-sans);
+  }
+
+  .testimonial-carousel .carousel-control-prev,
+  .testimonial-carousel .carousel-control-next {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .testimonial-carousel .carousel-control-prev i,
+  .testimonial-carousel .carousel-control-next i {
+    color: var(--color-accent);
+  }
+
+  /* --- Concierge Chatbot Widget --- */
+  #concierge-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    z-index: 1000;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: white;
+    display: block;
+    /* Always open by default */
+    transition: all 0.3s ease-in-out;
+    /* Enable smooth minimize transition */
+  }
+
+  .concierge-header {
+     background: linear-gradient(
+  135deg,
+  #b47e11 0%,
+  #f7c948 25%,
+  #ffd86f 50%,
+  #f7c948 75%,
+  #b47e11 100%
+);
+    color: #000;
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+  }
+
+  .concierge-header i {
+    color: #000;
+  }
+
+  .concierge-body {
+    padding: 20px;
+    background-color: #000;
+  }
+
+  .concierge-body input,
+  .concierge-body textarea {
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    padding: 10px;
+    background: transparent;
+    margin-bottom: 15px;
+    width: 100%;
+    transition: border-color 0.3s;
+  }
+
+  .concierge-body input:focus,
+  .concierge-body textarea:focus {
+    border-color: var(--color-accent);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(214, 167, 75, 0.2);
+  }
+
+  /* Minimized State (The Floating Gold Icon) */
+  .concierge-minimized {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(45deg, var(--color-accent-dark), var(--color-accent)) !important;
+    box-shadow: 0 5px 20px rgba(214, 167, 75, 0.6) !important;
+  }
+
+  .concierge-minimized .concierge-header {
+    background: none;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+
+  .concierge-minimized .concierge-header .header-title {
+    display: none;
+  }
+
+  .concierge-minimized .concierge-body,
+  .concierge-minimized #concierge-toggle-icon {
+    display: none;
+  }
+
+  .concierge-minimized .concierge-header i {
+    color: white !important;
+    /* White icon on gold background */
+    font-size: 1.8rem;
+    margin: 0 !important;
+  }
+
+  /* --- Footer Styling --- */
+  .footer-elite {
+    background-color: var(--color-text-dark);
+    color: #ccc;
+    padding: 50px 0 20px;
+    border-top: 5px solid var(--color-accent);
+  }
+
+  .footer-elite a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-elite a:hover {
+    color: var(--color-accent);
+  }
+
+  .social-icons a {
+    font-size: 1.5rem;
+    margin-right: 15px;
+  }
+
+  #credibility{
+    padding-top: 220px !important;
+  }
+
+  /* --- Custom Responsive Design --- */
+  @media (max-width: 992px) {
+    .hero-title {
+      font-size: 3rem;
+    }
+
+    .hero-image-placeholder {
+      min-height: 450px;
+    }
+
+    .menu-link {
+      font-size: 2.5rem;
+    }
+
+    .menu-info {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+
+    /* General Mobile Typography */
+    h1,
+    .hero-title {
+      font-size: 2.2rem !important;
+      /* More aggressive scaling */
+      line-height: 1.2;
+    }
+    /* #credibility{
+      padding-top: 20px !important;
+    } */
+
+    h2,
+    .section-header h2 {
+      font-size: 1.8rem !important;
+    }
+
+    /* Hero Section Adjustments */
+    .hero-section {
+      padding-top: 60px;
+      /* Reduced padding on mobile */
+    }
+
+    .hero-image-placeholder {
+      min-height: 400px;
+    }
+
+    /* Fix Slider Arrows positioning */
+    .carousel-control-prev,
+    .carousel-control-next {
+      top: 50%;
+      /* Center vertically */
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+    }
+
+    .carousel-control-prev {
+      left: 10px;
+    }
+
+    .carousel-control-next {
+      right: 10px;
+    }
+
+    .carousel-control-prev i,
+    .carousel-control-next i {
+      font-size: 1.2rem;
+    }
+
+    /* Hero Stat Card for Mobile refinement */
+    .hero-stat-card {
+      position: relative;
+      bottom: 0;
+      transform: translateX(0);
+      margin-top: 20px;
+      left: unset;
+      width: 100%;
+      max-width: none;
+      border-radius: 0;
+      padding: 15px;
+    }
+
+    .hero-stat-card h5,
+    .hero-stat-card h4 {
+      font-size: 1rem;
+    }
+
+    .animated-stat {
+      font-size: 1.5rem;
+      /* Smaller, cleaner stats */
+    }
+
+    /* Concierge Widget Fix */
+    #concierge-widget {
+      width: 90%;
+      right: 5%;
+      bottom: 20px;
+      border-radius: 12px;
+    }
+
+    /* Override for Minimized State on Mobile */
+    .concierge-minimized {
+      width: 60px !important;
+      height: 60px !important;
+      right: 20px !important;
+      /* Keep it floating bottom-right */
+      bottom: 20px !important;
+      border-radius: 50% !important;
+    }
+
+    /* Menu Layout Refinement for Mobile */
+    .menu-link {
+      font-size: 2rem;
+    }
+
+    .menu-content-wrapper .col-md-3,
+    .menu-content-wrapper .col-md-5 {
+      margin-bottom: 20px;
+    }
+
+    /* General Spacing */
+    .section-divider {
+      margin: 40px 0;
+    }
+
+    .testimonial-card {
+      padding: 30px 15px;
+    }
+  }
